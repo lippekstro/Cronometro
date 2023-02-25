@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+/*importa a fonte*/
+
+* {
+    /*seleciona todos os itens do html */
+    padding: 0;
+    /*remove os espaçamentos internos padrão*/
+    margin: 0;
+    /*remove as margens padrão*/
+    box-sizing: border-box;
+    /*calcula os tamanhos automaticamente e mais ajustado*/
+    font-size: 50px;
+    /*tamanho da fonte*/
+    font-family: 'Roboto', sans-serif;
+    /*utiliza a fonte importada*/
+    color: white;
+    /*cor do texto*/
+}
+
+.container {
+    /*seleciona o container com a classe container*/
+    display: flex;
+    /*transforma em uma flexbox*/
+    flex-direction: column;
+    /*muda a direçao para exibir os itens um em cima do outro*/
+    justify-content: center;
+    /*centraliza os itens*/
+    align-items: center;
+    /*alinha a altura no centro*/
+    background-color: black;
+    /*cor de fundo*/
+    padding: 0.5rem;
+    /*espacamento interno entre o conteudo e as bordas do container*/
+}
+
+.texto {
+    /*seleciona o container com a classe texto*/
+    text-align: center;
+    /*centraliza o texto*/
+}
+
+.cronometro {
+    /*seleciona o container com a classe cronometro*/
+    display: flex;
+    /*transforma em uma flexbox*/
+    flex-wrap: wrap;
+    /*envelopa os itens dependendo do espaco disponivel*/
+    justify-content: center;
+    /*centraliza os itens*/
+    align-items: center;
+    /*alinha a altura no centro*/
+    width: 100%;
+    /*largura*/
+}

@@ -1,0 +1,47 @@
+{
+    "titulo": {
+        "type": "text",
+        "label": "Título do Cronômetro",
+        "value": "",
+        "group": "configurações"
+    },
+    "pause": {
+        "type": "button",
+        "label": "Iniciar/Pausar",
+        "value": "",
+        "group": "botões"
+    },
+    "reset": {
+        "type": "button",
+        "label": "Resetar",
+        "value": "",
+        "group": "botões"
+    },
+    "hora": {
+        "type": "number",
+        "label": "Horas",
+        "value": "0",
+        "step": 1,
+        "group": "tempo"
+    },
+    "minuto": {
+        "type": "number",
+        "label": "Minutos",
+        "value": "0",
+        "step": 1,
+        "group": "tempo"
+    },
+    "segundo": {
+        "type": "number",
+        "label": "Segundos",
+        "value": "0",
+        "step": 1,
+        "group": "tempo"
+    },
+    "atualiza": {
+        "type": "button",
+        "label": "Atualizar",
+        "value": "",
+        "group": "tempo"
+    }
+}
