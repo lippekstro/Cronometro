@@ -3,6 +3,8 @@ window.addEventListener('onWidgetLoad', function (obj) {
     const horaElement = document.querySelector('.hora');
     const minutoElement = document.querySelector('.minuto');
     const segundoElement = document.querySelector('.segundo');
+    const btnPlay = document.getElementById('play');
+    const btnReset = document.getElementById('reset');
 
     // Define o tempo inicial em segundos e se o cronômetro está pausado
     let tempo = 0;
@@ -25,18 +27,34 @@ window.addEventListener('onWidgetLoad', function (obj) {
         }
     }, 1000);
 
-
+    // Adiciona um ouvinte de eventos para pausar/iniciar o cronômetro quando o botao eh clicado
+    btnPlay.addEventListener('click', () => {
+        // Alterna o estado de pausa
+        pausado = !pausado;
+        // Altera o texto do botão com base no estado de pausa
+        btnPlay.innerHTML = pausado ? '<span class="material-symbols-outlined">play_arrow</span>' : '<span class="material-symbols-outlined">pause</span>';
+    });
     // Adiciona um ouvinte de eventos para pausar/iniciar o cronômetro quando o botao eh clicado
     window.addEventListener('onEventReceived', function (obj) {
         const data = obj.detail.event;
         if (data.listener === 'widget-button') {
             if (data.field === 'pause') {
                 pausado = !pausado;
+                btnPlay.innerHTML = pausado ? '<span class="material-symbols-outlined">play_arrow</span>' : '<span class="material-symbols-outlined">pause</span>';
             }
             window.dispatchEvent(emulated);
         }
     });
 
+    // Adiciona um ouvinte de eventos para resetar o cronômetro quando o botao eh clicado
+    btnReset.addEventListener('click', () => {
+        horaElement.textContent = '00';
+        minutoElement.textContent = '00';
+        segundoElement.textContent = '00';
+        tempo = 0;
+        pausado = true;
+        btnPlay.innerHTML = '<span class="material-symbols-outlined">play_arrow</span>'
+    });
     // Adiciona um ouvinte de eventos para resetar o cronômetro quando o botao eh clicado
     window.addEventListener('onEventReceived', function (obj) {
         const data = obj.detail.event;
@@ -47,6 +65,7 @@ window.addEventListener('onWidgetLoad', function (obj) {
                 segundoElement.textContent = '00';
                 tempo = 0;
                 pausado = true;
+                btnPlay.innerHTML = '<span class="material-symbols-outlined">play_arrow</span>'
             }
             window.dispatchEvent(emulated);
         }
