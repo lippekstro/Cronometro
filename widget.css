@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 /*importa a fonte*/
 
 * {
@@ -29,7 +29,7 @@
     /*alinha a altura no centro*/
     background-color: black;
     /*cor de fundo*/
-    padding: 0.5rem;
+    padding: 0.2rem;
     /*espacamento interno entre o conteudo e as bordas do container*/
 }
 
@@ -73,7 +73,53 @@ button {
     justify-content: center;
 }
 
-button:hover {
+button:hover,
+button:hover span {
     background-color: white;
     color: black;
+    font-size: 24px;
+}
+
+.container-editor {
+    /*seleciona o container com a classe container*/
+    display: flex;
+    /*transforma em uma flexbox*/
+    justify-content: center;
+    /*centraliza os itens*/
+    align-items: center;
+    /*alinha a altura no centro*/
+    background-color: black;
+    /*cor de fundo*/
+    padding: 0.2rem;
+    /*espacamento interno entre o conteudo e as bordas do container*/
+    width: 100%;
+}
+
+.form-item {
+    margin: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    color: black;
+    padding: 0.3rem;
+    font-size: 24px;
+}
+
+label {
+    font-size: 24px;
+}
+
+.estrutura {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#hora,
+#minuto,
+#segundo {
+    width: 100%;
 }

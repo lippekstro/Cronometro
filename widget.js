@@ -3,8 +3,17 @@ window.addEventListener('onWidgetLoad', function (obj) {
     const horaElement = document.querySelector('.hora');
     const minutoElement = document.querySelector('.minuto');
     const segundoElement = document.querySelector('.segundo');
+
+    const txtTitulo = document.getElementById('titulo');
+    const entTitulo = document.getElementById('txttitulo');
+    const btnNovoTitulo = document.getElementById('novotitulo');
+
+    const entHora = document.getElementById('hora');
+    const entMin = document.getElementById('minuto');
+    const entSeg = document.getElementById('segundo');
     const btnPlay = document.getElementById('play');
     const btnReset = document.getElementById('reset');
+    const btnAtualizar = document.getElementById('atualizar');
 
     // Define o tempo inicial em segundos e se o cronômetro está pausado
     let tempo = 0;
@@ -26,6 +35,10 @@ window.addEventListener('onWidgetLoad', function (obj) {
             tempo++;
         }
     }, 1000);
+
+    btnNovoTitulo.addEventListener('click', () => {
+        txtTitulo.innerHTML = entTitulo.value;
+    });
 
     // Adiciona um ouvinte de eventos para pausar/iniciar o cronômetro quando o botao eh clicado
     btnPlay.addEventListener('click', () => {
@@ -71,6 +84,19 @@ window.addEventListener('onWidgetLoad', function (obj) {
         }
     });
 
+    btnAtualizar.addEventListener('click', () => {
+        const horas = parseInt(entHora.value);
+        const minutos = parseInt(entMin.value);
+        const segundos = parseInt(entSeg.value);
+
+        horaElement.textContent = horas < 10 ? `0${horas}` : horas;
+        minutoElement.textContent = minutos < 10 ? `0${minutos}` : minutos;
+        segundoElement.textContent = segundos < 10 ? `0${segundos}` : segundos;
+
+        tempo = (horas * 3600) + (minutos * 60) + segundos;
+        pausado = true;
+        btnPlay.innerHTML = '<span class="material-symbols-outlined">play_arrow</span>'
+    });
     // Adiciona um ouvinte de eventos para atualizar o cronômetro com os valores colocados nos campos quando o botao eh clicado
     const { fieldData } = obj.detail;
     window.addEventListener('onEventReceived', function (obj) {
